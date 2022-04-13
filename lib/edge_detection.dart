@@ -8,10 +8,10 @@ import 'package:flutter/material.dart';
 
 class Coordinate extends Struct {
   @Double()
-  double x;
+  external double x;
 
   @Double()
-  double y;
+  external double y;
 
   factory Coordinate.allocate(double x, double y) =>
       malloc<Coordinate>().ref
@@ -20,10 +20,10 @@ class Coordinate extends Struct {
 }
 
 class NativeDetectionResult extends Struct {
-  Pointer<Coordinate> topLeft;
-  Pointer<Coordinate> topRight;
-  Pointer<Coordinate> bottomLeft;
-  Pointer<Coordinate> bottomRight;
+  external Pointer<Coordinate> topLeft;
+  external Pointer<Coordinate> topRight;
+  external Pointer<Coordinate> bottomLeft;
+  external Pointer<Coordinate> bottomRight;
 
   factory NativeDetectionResult.allocate(
       Pointer<Coordinate> topLeft,
@@ -39,16 +39,16 @@ class NativeDetectionResult extends Struct {
 
 class EdgeDetectionResult {
   EdgeDetectionResult({
-    @required this.topLeft,
-    @required this.topRight,
-    @required this.bottomLeft,
-    @required this.bottomRight,
+     this.topLeft,
+     this.topRight,
+     this.bottomLeft,
+     this.bottomRight,
   });
 
-  Offset topLeft;
-  Offset topRight;
-  Offset bottomLeft;
-  Offset bottomRight;
+  Offset? topLeft;
+  Offset? topRight;
+  Offset? bottomLeft;
+  Offset? bottomRight;
 }
 
 typedef DetectEdgesFunction = Pointer<NativeDetectionResult> Function(
@@ -117,14 +117,14 @@ class EdgeDetection {
 
     return processImage(
         path.toNativeUtf8(),
-        result.topLeft.dx,
-        result.topLeft.dy,
-        result.topRight.dx,
-        result.topRight.dy,
-        result.bottomLeft.dx,
-        result.bottomLeft.dy,
-        result.bottomRight.dx,
-        result.bottomRight.dy
+        result.topLeft!.dx,
+        result.topLeft!.dy,
+        result.topRight!.dx,
+        result.topRight!.dy,
+        result.bottomLeft!.dx,
+        result.bottomLeft!.dy,
+        result.bottomRight!.dx,
+        result.bottomRight!.dy
     ) == 1;
   }
 
