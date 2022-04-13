@@ -13,7 +13,7 @@ A new flutter plugin project.
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'flutterclutter.dev' => 'fluttercluttedev@gmail.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*.{swift,c,m,h,mm,cpp,plist}'
+  s.source_files = 'Classes/**/*<em>/</em>.{swift,c,m,h,mm,cpp,plist}'
   s.dependency 'Flutter'
   s.platform = :ios, '8.0'
 
